@@ -1,0 +1,128 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import Header from "../components/Header.astro";
+import Main from "../components/Main.astro";
+
+import Section from "../components/Section.astro";
+import HorizontalSection from "../components/HorizontalSection.astro";
+
+import EventList from "../components/EventList.astro";
+import EventItem from "../components/EventItem.astro";
+
+import SongList from "../components/SongList.astro";
+import SongItem from "../components/SongItem.astro";
+
+import PhotoGrid from "../components/PhotoGrid.astro";
+
+import SquarePhoto from "../components/SquarePhoto.astro";
+import VerticalPhoto from "../components/VerticalPhoto.astro";
+import HorizontalPhoto from "../components/HorizontalPhoto.astro";
+---
+
+<Layout>
+	<Header />
+
+	<Main>
+		<!-- Home -->
+		<Section id="home">
+			<div class="w-full h-full flex items-center justify-center">
+				<h1 class="text-white text-6xl lg:text-8xl font-bebas-neue" data-aos="fade-down">SUCESSO COM A MULHERADA</h1>
+			</div>
+		</Section>
+
+		<!-- Shows -->
+		<Section id="shows">
+			<EventList>
+				<EventItem date="15 de Fevereiro" name="Teste" location="Neo Química Arena, São Paulo - SP" action="Ingressos" aos="flip-up"/>
+				<EventItem date="15 de Fevereiro" name="Teste" location="Neo Química Arena, São Paulo - SP" action="Ingressos" aos="flip-down"/>
+				<EventItem date="15 de Fevereiro" name="Teste" location="Neo Química Arena, São Paulo - SP" action="Ingressos" aos="flip-up"/>
+				<EventItem date="15 de Fevereiro" name="Teste" location="Neo Química Arena, São Paulo - SP" action="Ingressos" aos="flip-down"/>
+				<EventItem date="15 de Fevereiro" name="Teste" location="Neo Química Arena, São Paulo - SP" action="Ingressos" aos="flip-up"/>
+				<EventItem date="15 de Fevereiro" name="Teste" location="Neo Química Arena, São Paulo - SP" action="Ingressos" aos="flip-down"/>
+			</EventList>
+		</Section>
+
+		<!-- Músicas -->
+		<Section id="musicas">
+			<SongList>
+				<!-- Left -->
+				<SongItem name="Automotivo Vem Fazer Nenem" artists="DJ Fury, DJ Miller Oficial, DJ K" aos="zoom-in-right" />
+
+				<!-- Middle -->
+				<div class="hidden lg:block">
+					<SongItem name="Automotivo Vem Fazer Nenem" artists="DJ Fury, DJ Miller Oficial, DJ K" aos="zoom-in" />
+				</div>
+
+				<!-- Right -->
+				<div class="hidden lg:block">
+					<SongItem name="Automotivo Vem Fazer Nenem" artists="DJ Fury, DJ Miller Oficial, DJ K" aos="zoom-in-left" />
+				</div>
+			</SongList>
+
+			<h1 class="text-white text-3xl lg:text-4xl font-bebas-neue" data-aos="fade-up">MAIS MÚSICAS</h1>
+		</Section>
+
+		<!-- Galeria -->
+		<Section id="galeria"> 
+			<PhotoGrid>
+				<SquarePhoto />
+				<SquarePhoto />
+				<SquarePhoto />
+
+				<VerticalPhoto />
+
+				<SquarePhoto />
+
+				<HorizontalPhoto />
+			</PhotoGrid>
+
+			<h1 class="text-white text-3xl lg:text-4xl font-bebas-neue" data-aos="fade-up">MAIS FOTOS</h1>
+		</Section>
+
+		<!-- Contato -->
+		<HorizontalSection id="contato">
+			<!-- Socials -->
+			<div class="w-full lg:w-1/2 h-full flex flex-col items-center justify-center gap-4">
+				<h1 class="text-white text-4xl font-bebas-neue" data-aos="fade-down">REDES SOCIAIS</h1>
+
+				<div class="bg-gray-200 w-full h-full" data-aos="fade-right"></div> 
+
+				<div class="flex flex-row items-center justify-center gap-8" data-aos="fade-up">
+					<a class="flex flex-row items-center justify-center gap-2">
+						<img class="w-[16px] h-[16px] lg:w-[32px] lg:h-[32px]" src="../../src/assets/img/instagram.png">
+						<p class="text-white lg:text-xl font-bebas-neue">Instagram</p>
+					</a>
+					<a class="flex flex-row items-center justify-center gap-2">
+						<img class="w-[16px] h-[16ppx] lg:w-[32px] lg:h-[32px]" src="../../src/assets/img/spotify.png">
+						<p class="text-white lg:text-xl font-bebas-neue">Spotify</p>
+					</a>
+				</div>
+			</div>
+
+			<!-- Form -->
+			<div class="w-full lg:w-1/2 h-full flex flex-col items-center justify-center gap-4">
+				<h1 class="text-white text-4xl font-bebas-neue" data-aos="fade-down">FORMULÁRIO</h1>
+
+				<form class="w-full h-full flex flex-col gap-4">
+					<div data-aos="fade-left">
+						<label for="name" class="text-white block text-2xl font-bebas-neue">Nome</label>
+						<input class="bg-white w-full px-1 py-2" name="name" placeholder="Escreva seu nome aqui..." id="name" required>
+					</div>
+					<div data-aos="fade-left">
+						<label for="email" class="text-white block text-2xl font-bebas-neue">E-mail</label>
+						<input class="bg-white w-full px-1 py-2" type="email" name="email" placeholder="Escreva seu e-mail aqui..." id="email" required>
+					</div>
+					<div class="w-full h-full" data-aos="fade-left">
+						<label for="message" class="text-white block text-2xl font-bebas-neue">Mensagem</label>
+						<textarea class="bg-white w-full px-1 py-2 resize-none" name="message" placeholder="Escreva sua mensagem aqui..." id="message" required></textarea>
+					</div>
+
+					<div data-aos="fade-up">
+						<button type="submit" class="w-full text-white text-4xl font-bebas-neue">Enviar</button>
+					</div>
+				</form>
+			</div>
+		</HorizontalSection>
+	</Main>
+</Layout>

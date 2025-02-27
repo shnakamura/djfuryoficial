@@ -1,0 +1,29 @@
+---
+import "../styles/global.css"
+---
+
+<!doctype html>
+<html class="scroll-smooth" lang="en">
+	<head>
+		<title>DJ Fury</title>
+
+		<meta property="og:title" content="djfuryoficial">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://djfuryoficial.com.br/">
+
+		<meta name="generator" content={Astro.generator} />
+
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0">
+	</head>
+	<body class="bg-black flex flex-col items-center">
+		<slot />
+		
+		<script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
+		<script is:inline>
+			AOS.init();
+		</script>
+	</body>
+</html>

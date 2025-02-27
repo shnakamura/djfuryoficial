@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+    --font-bebas-neue: 'Bebas Neue', sans-serif;
+    --font-rubik: 'Rubik Variable', sans-serif;
+}
