@@ -4,3 +4,11 @@
     --font-bebas-neue: 'Bebas Neue', sans-serif;
     --font-rubik: 'Rubik Variable', sans-serif;
 }
+
+.desktop {
+    @apply hidden lg:block
+}
+
+.mobile {
+    @apply lg:hidden
+}

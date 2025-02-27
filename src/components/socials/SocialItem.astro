@@ -1,0 +1,10 @@
+---
+const { label, src, url, aos } = Astro.props;
+---
+
+<li data-aos={aos}>
+	<a class="flex flex-row items-center justify-center gap-2 hover:-translate-y-1 transition-all ease-out" href={url} target="_blank">
+		<img class="w-[24px] h-[24px] lg:w-[32px] lg:h-[32px]" src={src}>
+		<p class="text-white text-lg lg:text-xl font-bebas-neue">{label}</p>
+	</a>
+</li>

@@ -1,7 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import { getLatestSongs } from "../scripts/spotify.js";
 
-import Desktop from "../components/Desktop.astro";
+const latestSongs = await getLatestSongs(SPOTIFY_ARTIST_ID, 3);
+
+import Layout from "../layouts/Layout.astro";
+import HalfBox from "../components/HalfBox.astro";
 
 import VerticalSection from "../components/sections/VerticalSection.astro";
 import SectionHeader from "../components/sections/SectionHeader.astro";
@@ -13,122 +16,104 @@ import EventItem from "../components/events/EventItem.astro";
 import SongList from "../components/songs/SongList.astro";
 import SongItem from "../components/songs/SongItem.astro";
 
-import PhotoGrid from "../components/gallery/PhotoGrid.astro";
-
-import SquarePhoto from "../components/gallery/SquarePhoto.astro";
-import VerticalPhoto from "../components/gallery/VerticalPhoto.astro";
-import HorizontalPhoto from "../components/gallery/HorizontalPhoto.astro";
+import SocialList from "../components/socials/SocialList.astro";
+import SocialItem from "../components/socials/SocialItem.astro";
 
 import ContactForm from "../components/contact/ContactForm.astro";
 import ContactFormInputBox from "../components/contact/ContactFormInputBox.astro";
 import ContactFormTextArea from "../components/contact/ContactFormTextArea.astro";
+
+import { SPOTIFY_URL, INSTAGRAM_URL, YOUTUBE_URL, SPOTIFY_ARTIST_ID } from "../scripts/constants.js";
 ---
 
 <Layout>
-	<!-- Home -->
 	<VerticalSection id="home">
 		<div class="w-full h-full flex flex-row items-center justify-between">
-			<h1 class="text-white text-6xl lg:text-8xl font-bebas-neue mb-6" data-aos="zoom-in">ESSE É O DJ FURY</h1>
+			<h1 class="desktop text-white text-6xl lg:text-8xl font-bebas-neue desktop mb-6" data-aos="zoom-in">ESSE É O DJ FURY</h1>
 
-			<img src="/djfuryoficial/src/assets/img/fury.png" data-aos="zoom-in">
+			<img src="../../src/assets/img/fury.png" data-aos="zoom-in">
 
-			<Desktop>
-				<h1 class="text-white text-6xl lg:text-8xl font-bebas-neue mb-6" data-aos="zoom-in">SUCESSO COM A MULHERADA</h1>
-			</Desktop>
+			<h1 class="desktop text-white text-6xl lg:text-8xl font-bebas-neue desktop mb-6" data-aos="zoom-in">SUCESSO COM A MULHERADA</h1>
 		</div>
 	</VerticalSection>
 
-	<!-- Shows -->
 	<HorizontalSection id="shows">
-		<div class="w-full lg:w-1/2 h-full flex flex-col items-center justify-center gap-4">
-			<img class="w-1/2 h-auto" src="/djfuryoficial/src/assets/img/fury_3.png">
-		</div>
+		<HalfBox>
+			<img class="desktop w-1/2 h-auto" src="../../src/assets/img/fury_3.png">
+		</HalfBox>
 
-		<div class="w-full lg:w-1/2 h-full flex flex-col items-center justify-center gap-4">
+		<HalfBox>
 			<EventList>
-				<EventItem date="15 de Fevereiro" name="Teste" location="Neo Química Arena, São Paulo - SP" action="Ingressos" aos="flip-up"/>
-				<EventItem date="15 de Fevereiro" name="Teste" location="Neo Química Arena, São Paulo - SP" action="Ingressos" aos="flip-down"/>
-				<EventItem date="15 de Fevereiro" name="Teste" location="Neo Química Arena, São Paulo - SP" action="Ingressos" aos="flip-up"/>
-				<EventItem date="15 de Fevereiro" name="Teste" location="Neo Química Arena, São Paulo - SP" action="Ingressos" aos="flip-down"/>
-				<EventItem date="15 de Fevereiro" name="Teste" location="Neo Química Arena, São Paulo - SP" action="Ingressos" aos="flip-up"/>
-				<EventItem date="15 de Fevereiro" name="Teste" location="Neo Química Arena, São Paulo - SP" action="Ingressos" aos="flip-down"/>
+				<EventItem date="15 de Fevereiro" label="Carna Tenda" location="Neo Química Arena, São Paulo - SP" action="Ingressos" over aos="flip-up"/>
+				<EventItem date="22 de Fevereiro" label="Submundo 808" location="São Paulo - SP" action="Ingressos" over aos="flip-up"/>
+				<EventItem date="02 de Março" label="Carna Farra" location="São Paulo - SP" action="Ingressos" aos="flip-up"/>
+				<EventItem date="08 de Março" label="Fusion Fest" location="São Paulo - SP" action="Ingressos" aos="flip-up"/>
+				<EventItem date="15 de Março" label="Carna Tenda" location="Curitiba - PR" action="Ingressos" aos="flip-up"/>
+				<EventItem date="22 de Março" label="Boteco da Diretoria" location="Poços de Caldas - MG" action="Ingressos" aos="flip-up"/>
+				<EventItem date="29 de Março" label="Carna Tenda" location="Uberlandias - MG" action="Ingressos" aos="flip-up"/>
 			</EventList>
-		</div>
+		</HalfBox>
 	</HorizontalSection>
 
-	<!-- Músicas -->
 	<VerticalSection id="musicas">
 		<SongList>
-			<!-- Left -->
-			<SongItem name="Automotivo Vem Fazer Nenem" artists="DJ Fury, DJ Miller Oficial, DJ K" aos="zoom-in-right" />
-
-			<!-- Middle -->
-			<Desktop>
-				<SongItem name="Automotivo Vem Fazer Nenem" artists="DJ Fury, DJ Miller Oficial, DJ K" aos="zoom-in" />
-			</Desktop>
-
-			<!-- Right -->
-			<Desktop>
-				<SongItem name="Automotivo Vem Fazer Nenem" artists="DJ Fury, DJ Miller Oficial, DJ K" aos="zoom-in-left" />
-			</Desktop>
+			<SongItem label={latestSongs[0].name} artists={latestSongs[0].artists} src={latestSongs[0].image} url={latestSongs[0].url} desktop aos="fade-right" />
+			<SongItem label={latestSongs[1].name} artists={latestSongs[1].artists} src={latestSongs[1].image} url={latestSongs[1].url} aos="zoom-in" />
+			<SongItem label={latestSongs[0].name} artists={latestSongs[0].artists} src={latestSongs[0].image} url={latestSongs[0].url} desktop aos="fade-left" />
 		</SongList>
-
-		<SectionHeader text="MAIS MÚSICAS" />
 	</VerticalSection>
 
-	<!-- Galeria -->
 	<VerticalSection id="galeria"> 
-		<PhotoGrid>
-			<SquarePhoto />
-			<SquarePhoto />
-			<SquarePhoto />
+		<div class="w-full h-full grid grid-cols-1 grid-rows-1 lg:grid-cols-3 gap-8">
+			<div class="bg-white w-full aspect-[1/1] m-auto overflow-hidden desktop">
+				<img src="../../src/assets/img/feed3.png" alt="Image" class="w-full h-full object-cover" />
+			</div>
 
-			<VerticalPhoto />
+			<div class="bg-white w-full aspect-[1/1] m-auto overflow-hidden">
+				<img src="../../src/assets/img/feed1.png" alt="Image" class="w-full h-full object-cover" />
+			</div>
 
-			<SquarePhoto />
-
-			<HorizontalPhoto />
-		</PhotoGrid>
-
-		<SectionHeader text="MAIS FOTOS" />
-	</VerticalSection>
-
-	<!-- Contato -->
-	<HorizontalSection id="contato">
-		<!-- Socials -->
-		<div class="w-full lg:w-1/2 h-full flex flex-col items-center justify-center gap-4">
-			<SectionHeader text="REDES SOCIAIS" />
-
-			<div class="relative w-full h-full flex items-center justify-center -z-10" data-aos="fade-right">
-				<img class="absolute" src="/djfuryoficial/src/assets/img/fury_4.png">	
-			</div> 
-
-			<div class="flex flex-row items-center justify-center gap-8" data-aos="fade-up">
-				<a class="flex flex-row items-center justify-center gap-2">
-					<img class="w-[16px] h-[16px] lg:w-[32px] lg:h-[32px]" src="/djfuryoficial/src/assets/img/instagram.png">
-					<p class="text-white lg:text-xl font-bebas-neue">Instagram</p>
-				</a>
-				<a class="flex flex-row items-center justify-center gap-2">
-					<img class="w-[16px] h-[16ppx] lg:w-[32px] lg:h-[32px]" src="/djfuryoficial/src/assets/img/spotify.png">
-					<p class="text-white lg:text-xl font-bebas-neue">Spotify</p>
-				</a>
+			<div class="bg-white w-full aspect-[1/1] m-auto overflow-hidden desktop">
+				<img src="../../src/assets/img/feed2.png" alt="Image" class="w-full h-full object-cover" />
 			</div>
 		</div>
+	</VerticalSection>
 
-		<!-- Form -->
-		<div class="w-full lg:w-1/2 h-full flex flex-col items-center justify-center gap-4">
-			<SectionHeader text="FORMULÁRIO" />
+	<HorizontalSection id="contato">
+		<HalfBox>
+			<SectionHeader label="REDES SOCIAIS" aos="fade-down" />
 
-			<ContactForm>
-				<ContactFormInputBox name="Nome" placeholder="Escreva seu nome aqui..." type="name" aos="fade-left" id="name"  />
-				<ContactFormInputBox name="E-mail" placeholder="Escreva seu e-mail aqui..." type="email" aos="fade-left" id="email" />
+			<div class="desktop relative w-full h-full flex items-center justify-center -z-10" data-aos="fade-right">
+				<img class="absolute" src="../../src/assets/img/fury_4.png">	
+			</div> 
 
-				<ContactFormTextArea name="Mensagem" placeholder="Escreva sua mensagem aqui..." aos="fade-left" id="message" />
+			<SocialList>
+				<SocialItem label="Spotify" src="../../src/assets/img/icons/spotify.png" url={SPOTIFY_URL} aos="fade-right" />
+				<SocialItem label="Instagram" src="../../src/assets/img/icons/instagram.png" url={INSTAGRAM_URL} aos="fade-up" />
+				<SocialItem label="YouTube" src="../../src/assets/img/icons/youtube.png" url={YOUTUBE_URL} aos="fade-left" />
+			</SocialList>
+		</HalfBox>
+
+		<HalfBox>
+			<SectionHeader label="FORMULÁRIO" aos="fade-down" />
+
+			<ContactForm id="contact">
+				<ContactFormInputBox label="Nome" placeholder="Escreva seu nome aqui..." name="name" type="name" aos="fade-left" id="name"  />
+				<ContactFormInputBox label="E-mail" placeholder="Escreva seu e-mail aqui..." name="email" type="email" aos="fade-left" id="email" />
+				<ContactFormInputBox label="Assunto" placeholder="Escreva o assunto aqui..." name="subject" type="text" aos="fade-left" id="email" />
+
+				<ContactFormTextArea label="Mensagem" placeholder="Escreva sua mensagem aqui..." aos="fade-left" id="message" />
 
 				<div data-aos="fade-up">
-					<button type="submit" class="w-full text-white text-2xl lg:text-4xl font-bebas-neue">Enviar</button>
+					<button class="w-full text-white text-2xl lg:text-4xl font-bebas-neue hover:-translate-y-2 transition-all ease-out cursor-pointer" type="submit">Enviar</button>
 				</div>
 			</ContactForm>
-		</div>
+		</HalfBox>
 	</HorizontalSection>
+	
+	<VerticalSection id="loja">
+		<img class="desktop absolute bottom-0" src="../../src/assets/img/footer.png">
+
+		<SectionHeader label="EM BREVE..." aos="fade-up" />
+	</VerticalSection>
 </Layout>

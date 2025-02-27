@@ -1,30 +1,27 @@
----
-import Desktop from "../components/Desktop.astro"
-import Mobile from "../components/Mobile.astro"
----
-
 <header class="fixed w-full h-24 px-4 py-12 lg:container" data-aos="fade-down">
-    <Mobile>
+    <div class="mobile">
         <div class="w-full flex flex-row items-center justify-between">
             <a href="#home" class="text-white text-2xl lg:text-4xl font-bebas-neue hover:scale-110 transition ease-out">HOME</a>
             <a href="#shows" class="text-white text-2xl lg:text-4xl font-bebas-neue hover:scale-110 transition ease-out">SHOWS</a>
             <a href="#musicas" class="text-white text-2xl lg:text-4xl font-bebas-neue hover:scale-110 transition ease-out">MÚSICAS</a>
             <a href="#galeria" class="text-white text-2xl lg:text-4xl font-bebas-neue hover:scale-110 transition ease-out">GALERIA</a>
             <a href="#contato" class="text-white text-2xl lg:text-4xl font-bebas-neue hover:scale-110 transition ease-out">CONTATO</a>
+            <a href="#loja" class="text-white text-2xl lg:text-4xl font-bebas-neue hover:scale-110 transition ease-out">LOJA</a>
         </div>
-    </Mobile>
+    </div>
 
-    <Desktop>
+    <div class="desktop">
         <div class="w-full flex flex-row items-between justify-between">
             <img class="w-[128px] h-auto" src="../../src/assets/img/logo.png">
-
+    
             <div class="flex items-center justify-center gap-8">
                 <a href="#home" class="text-white text-2xl lg:text-4xl font-bebas-neue hover:scale-110 transition ease-out">HOME</a>
                 <a href="#shows" class="text-white text-2xl lg:text-4xl font-bebas-neue hover:scale-110 transition ease-out">SHOWS</a>
                 <a href="#musicas" class="text-white text-2xl lg:text-4xl font-bebas-neue hover:scale-110 transition ease-out">MÚSICAS</a>
                 <a href="#galeria" class="text-white text-2xl lg:text-4xl font-bebas-neue hover:scale-110 transition ease-out">GALERIA</a>
                 <a href="#contato" class="text-white text-2xl lg:text-4xl font-bebas-neue hover:scale-110 transition ease-out">CONTATO</a>
+                <a href="#loja" class="text-white text-2xl lg:text-4xl font-bebas-neue hover:scale-110 transition ease-out">LOJA</a>
             </div>
         </div>
-    </Desktop>
+    </div>
 </header>

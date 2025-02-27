@@ -1,8 +1,8 @@
 ---
-const { name, placeholder, type, aos, id, } = Astro.props;
+const { label, placeholder, name, type, aos, id, } = Astro.props;
 ---
 
 <div data-aos={aos}>
-    <label class="text-white block text-xl lg:text-2xl font-bebas-neue">{name}</label>
-    <input class="bg-white w-full px-1 py-2 text-xs lg:text-base transition ease-out duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50" name="name" placeholder={placeholder} type={type} id={id} required>
+    <label class="text-white block text-xl lg:text-2xl font-bebas-neue">{label}</label>
+    <input class="bg-white w-full px-1 py-2 text-xs font-rubik font-semibold lg:text-base transition ease-out duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50" name={name} placeholder={placeholder} type={type} id={id} required>
 </div>

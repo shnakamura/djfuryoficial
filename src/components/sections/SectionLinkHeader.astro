@@ -1,0 +1,7 @@
+---
+const { label, url, aos } = Astro.props;
+---
+
+<a class="hover:-translate-y-2 transition-all ease-out" href={url} target="_blank">
+    <h1 class="text-white text-3xl lg:text-4xl font-bebas-neue" data-aos={aos}>{label}</h1>
+</a>
