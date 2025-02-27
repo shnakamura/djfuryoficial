@@ -1,38 +1,50 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-import Header from "../components/Header.astro";
-import Main from "../components/Main.astro";
+import Desktop from "../components/Desktop.astro";
 
-import Section from "../components/Section.astro";
-import HorizontalSection from "../components/HorizontalSection.astro";
+import VerticalSection from "../components/sections/VerticalSection.astro";
+import SectionHeader from "../components/sections/SectionHeader.astro";
+import HorizontalSection from "../components/sections/HorizontalSection.astro";
 
-import EventList from "../components/EventList.astro";
-import EventItem from "../components/EventItem.astro";
+import EventList from "../components/events/EventList.astro";
+import EventItem from "../components/events/EventItem.astro";
 
-import SongList from "../components/SongList.astro";
-import SongItem from "../components/SongItem.astro";
+import SongList from "../components/songs/SongList.astro";
+import SongItem from "../components/songs/SongItem.astro";
 
-import PhotoGrid from "../components/PhotoGrid.astro";
+import PhotoGrid from "../components/gallery/PhotoGrid.astro";
 
-import SquarePhoto from "../components/SquarePhoto.astro";
-import VerticalPhoto from "../components/VerticalPhoto.astro";
-import HorizontalPhoto from "../components/HorizontalPhoto.astro";
+import SquarePhoto from "../components/gallery/SquarePhoto.astro";
+import VerticalPhoto from "../components/gallery/VerticalPhoto.astro";
+import HorizontalPhoto from "../components/gallery/HorizontalPhoto.astro";
+
+import ContactForm from "../components/contact/ContactForm.astro";
+import ContactFormInputBox from "../components/contact/ContactFormInputBox.astro";
+import ContactFormTextArea from "../components/contact/ContactFormTextArea.astro";
 ---
 
 <Layout>
-	<Header />
+	<!-- Home -->
+	<VerticalSection id="home">
+		<div class="w-full h-full flex flex-row items-center justify-between">
+			<h1 class="text-white text-6xl lg:text-8xl font-bebas-neue mb-6" data-aos="zoom-in">ESSE É O DJ FURY</h1>
 
-	<Main>
-		<!-- Home -->
-		<Section id="home">
-			<div class="w-full h-full flex items-center justify-center">
-				<h1 class="text-white text-6xl lg:text-8xl font-bebas-neue" data-aos="fade-down">SUCESSO COM A MULHERADA</h1>
-			</div>
-		</Section>
+			<img src="../../src/assets/img/fury.png" data-aos="zoom-in">
 
-		<!-- Shows -->
-		<Section id="shows">
+			<Desktop>
+				<h1 class="text-white text-6xl lg:text-8xl font-bebas-neue mb-6" data-aos="zoom-in">SUCESSO COM A MULHERADA</h1>
+			</Desktop>
+		</div>
+	</VerticalSection>
+
+	<!-- Shows -->
+	<HorizontalSection id="shows">
+		<div class="w-full lg:w-1/2 h-full flex flex-col items-center justify-center gap-4">
+			<img class="w-1/2 h-auto" src="../../src/assets/img/fury_3.png">
+		</div>
+
+		<div class="w-full lg:w-1/2 h-full flex flex-col items-center justify-center gap-4">
 			<EventList>
 				<EventItem date="15 de Fevereiro" name="Teste" location="Neo Química Arena, São Paulo - SP" action="Ingressos" aos="flip-up"/>
 				<EventItem date="15 de Fevereiro" name="Teste" location="Neo Química Arena, São Paulo - SP" action="Ingressos" aos="flip-down"/>
@@ -41,88 +53,82 @@ import HorizontalPhoto from "../components/HorizontalPhoto.astro";
 				<EventItem date="15 de Fevereiro" name="Teste" location="Neo Química Arena, São Paulo - SP" action="Ingressos" aos="flip-up"/>
 				<EventItem date="15 de Fevereiro" name="Teste" location="Neo Química Arena, São Paulo - SP" action="Ingressos" aos="flip-down"/>
 			</EventList>
-		</Section>
+		</div>
+	</HorizontalSection>
 
-		<!-- Músicas -->
-		<Section id="musicas">
-			<SongList>
-				<!-- Left -->
-				<SongItem name="Automotivo Vem Fazer Nenem" artists="DJ Fury, DJ Miller Oficial, DJ K" aos="zoom-in-right" />
+	<!-- Músicas -->
+	<VerticalSection id="musicas">
+		<SongList>
+			<!-- Left -->
+			<SongItem name="Automotivo Vem Fazer Nenem" artists="DJ Fury, DJ Miller Oficial, DJ K" aos="zoom-in-right" />
 
-				<!-- Middle -->
-				<div class="hidden lg:block">
-					<SongItem name="Automotivo Vem Fazer Nenem" artists="DJ Fury, DJ Miller Oficial, DJ K" aos="zoom-in" />
-				</div>
+			<!-- Middle -->
+			<Desktop>
+				<SongItem name="Automotivo Vem Fazer Nenem" artists="DJ Fury, DJ Miller Oficial, DJ K" aos="zoom-in" />
+			</Desktop>
 
-				<!-- Right -->
-				<div class="hidden lg:block">
-					<SongItem name="Automotivo Vem Fazer Nenem" artists="DJ Fury, DJ Miller Oficial, DJ K" aos="zoom-in-left" />
-				</div>
-			</SongList>
+			<!-- Right -->
+			<Desktop>
+				<SongItem name="Automotivo Vem Fazer Nenem" artists="DJ Fury, DJ Miller Oficial, DJ K" aos="zoom-in-left" />
+			</Desktop>
+		</SongList>
 
-			<h1 class="text-white text-3xl lg:text-4xl font-bebas-neue" data-aos="fade-up">MAIS MÚSICAS</h1>
-		</Section>
+		<SectionHeader text="MAIS MÚSICAS" />
+	</VerticalSection>
 
-		<!-- Galeria -->
-		<Section id="galeria"> 
-			<PhotoGrid>
-				<SquarePhoto />
-				<SquarePhoto />
-				<SquarePhoto />
+	<!-- Galeria -->
+	<VerticalSection id="galeria"> 
+		<PhotoGrid>
+			<SquarePhoto />
+			<SquarePhoto />
+			<SquarePhoto />
 
-				<VerticalPhoto />
+			<VerticalPhoto />
 
-				<SquarePhoto />
+			<SquarePhoto />
 
-				<HorizontalPhoto />
-			</PhotoGrid>
+			<HorizontalPhoto />
+		</PhotoGrid>
 
-			<h1 class="text-white text-3xl lg:text-4xl font-bebas-neue" data-aos="fade-up">MAIS FOTOS</h1>
-		</Section>
+		<SectionHeader text="MAIS FOTOS" />
+	</VerticalSection>
 
-		<!-- Contato -->
-		<HorizontalSection id="contato">
-			<!-- Socials -->
-			<div class="w-full lg:w-1/2 h-full flex flex-col items-center justify-center gap-4">
-				<h1 class="text-white text-4xl font-bebas-neue" data-aos="fade-down">REDES SOCIAIS</h1>
+	<!-- Contato -->
+	<HorizontalSection id="contato">
+		<!-- Socials -->
+		<div class="w-full lg:w-1/2 h-full flex flex-col items-center justify-center gap-4">
+			<SectionHeader text="REDES SOCIAIS" />
 
-				<div class="bg-gray-200 w-full h-full" data-aos="fade-right"></div> 
+			<div class="relative w-full h-full flex items-center justify-center -z-10" data-aos="fade-right">
+				<img class="absolute" src="../../src/assets/img/fury_4.png">	
+			</div> 
 
-				<div class="flex flex-row items-center justify-center gap-8" data-aos="fade-up">
-					<a class="flex flex-row items-center justify-center gap-2">
-						<img class="w-[16px] h-[16px] lg:w-[32px] lg:h-[32px]" src="../../src/assets/img/instagram.png">
-						<p class="text-white lg:text-xl font-bebas-neue">Instagram</p>
-					</a>
-					<a class="flex flex-row items-center justify-center gap-2">
-						<img class="w-[16px] h-[16ppx] lg:w-[32px] lg:h-[32px]" src="../../src/assets/img/spotify.png">
-						<p class="text-white lg:text-xl font-bebas-neue">Spotify</p>
-					</a>
-				</div>
+			<div class="flex flex-row items-center justify-center gap-8" data-aos="fade-up">
+				<a class="flex flex-row items-center justify-center gap-2">
+					<img class="w-[16px] h-[16px] lg:w-[32px] lg:h-[32px]" src="../../src/assets/img/instagram.png">
+					<p class="text-white lg:text-xl font-bebas-neue">Instagram</p>
+				</a>
+				<a class="flex flex-row items-center justify-center gap-2">
+					<img class="w-[16px] h-[16ppx] lg:w-[32px] lg:h-[32px]" src="../../src/assets/img/spotify.png">
+					<p class="text-white lg:text-xl font-bebas-neue">Spotify</p>
+				</a>
 			</div>
+		</div>
 
-			<!-- Form -->
-			<div class="w-full lg:w-1/2 h-full flex flex-col items-center justify-center gap-4">
-				<h1 class="text-white text-4xl font-bebas-neue" data-aos="fade-down">FORMULÁRIO</h1>
+		<!-- Form -->
+		<div class="w-full lg:w-1/2 h-full flex flex-col items-center justify-center gap-4">
+			<SectionHeader text="FORMULÁRIO" />
 
-				<form class="w-full h-full flex flex-col gap-4">
-					<div data-aos="fade-left">
-						<label for="name" class="text-white block text-2xl font-bebas-neue">Nome</label>
-						<input class="bg-white w-full px-1 py-2" name="name" placeholder="Escreva seu nome aqui..." id="name" required>
-					</div>
-					<div data-aos="fade-left">
-						<label for="email" class="text-white block text-2xl font-bebas-neue">E-mail</label>
-						<input class="bg-white w-full px-1 py-2" type="email" name="email" placeholder="Escreva seu e-mail aqui..." id="email" required>
-					</div>
-					<div class="w-full h-full" data-aos="fade-left">
-						<label for="message" class="text-white block text-2xl font-bebas-neue">Mensagem</label>
-						<textarea class="bg-white w-full px-1 py-2 resize-none" name="message" placeholder="Escreva sua mensagem aqui..." id="message" required></textarea>
-					</div>
+			<ContactForm>
+				<ContactFormInputBox name="Nome" placeholder="Escreva seu nome aqui..." type="name" aos="fade-left" id="name"  />
+				<ContactFormInputBox name="E-mail" placeholder="Escreva seu e-mail aqui..." type="email" aos="fade-left" id="email" />
 
-					<div data-aos="fade-up">
-						<button type="submit" class="w-full text-white text-4xl font-bebas-neue">Enviar</button>
-					</div>
-				</form>
-			</div>
-		</HorizontalSection>
-	</Main>
+				<ContactFormTextArea name="Mensagem" placeholder="Escreva sua mensagem aqui..." aos="fade-left" id="message" />
+
+				<div data-aos="fade-up">
+					<button type="submit" class="w-full text-white text-2xl lg:text-4xl font-bebas-neue">Enviar</button>
+				</div>
+			</ContactForm>
+		</div>
+	</HorizontalSection>
 </Layout>

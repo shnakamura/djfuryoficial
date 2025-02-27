@@ -1,0 +1,8 @@
+---
+const { name, placeholder, aos, id, } = Astro.props;
+---
+
+<div class="w-full h-full" data-aos={aos}>
+    <label class="text-white block text-xl lg:text-2xl font-bebas-neue">{name}</label>
+    <textarea class="bg-white w-full px-1 py-2 resize-none text-xs lg:text-base transition ease-out duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50" placeholder={placeholder} id={id} required></textarea>
+</div>
