@@ -1,5 +1,5 @@
 ---
-import { getLatestSongs } from "../scripts/spotify.js";
+import { getLatestSongs } from "../../public/scripts/spotify.js";
 
 const latestSongs = await getLatestSongs(SPOTIFY_ARTIST_ID, 3);
 
@@ -23,7 +23,7 @@ import ContactForm from "../components/contact/ContactForm.astro";
 import ContactFormInputBox from "../components/contact/ContactFormInputBox.astro";
 import ContactFormTextArea from "../components/contact/ContactFormTextArea.astro";
 
-import { SPOTIFY_URL, INSTAGRAM_URL, YOUTUBE_URL, SPOTIFY_ARTIST_ID } from "../scripts/constants.js";
+import { SPOTIFY_URL, INSTAGRAM_URL, YOUTUBE_URL, SPOTIFY_ARTIST_ID } from "../../public/scripts/constants.js";
 ---
 
 <Layout>

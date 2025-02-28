@@ -1,5 +1,5 @@
 // @ts-check
-import { WEBSITE_SERVER_PORT, WEBSITE_URL } from "./src/scripts/constants.js";
+import { WEBSITE_SERVER_PORT, WEBSITE_URL } from "./public/scripts/constants.js";
 
 import { defineConfig } from 'astro/config';
 
