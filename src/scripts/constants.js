@@ -8,4 +8,3 @@ export const SPOTIFY_ARTIST_ID = "6CHfctV0xTse0qz9LGlpoK";
 
 export const WEBSITE_SERVER_PORT = 3000;
 export const WEBSITE_URL = "https://shnakamura.github.io";
-export const WEBSITE_BASE = `http://localhost:${WEBSITE_SERVER_PORT}`;
